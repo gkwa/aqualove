@@ -1,1 +1,46 @@
+** motivation
+
 Wrap cookiecutter with opinionated defaults.
+
+** wrapper for shell
+*** powershell
+
+#+begin_example
+function aqualovewrapper {
+    $path = & 'aqualove' $args
+    $clean = $path -replace "`n", ""
+    if ([string]::IsNullOrEmpty($clean)) {
+        return
+    }
+    if (Test-Path -Path $clean -PathType Container) {
+        Write-Host "[$clean]"
+        Push-Location $clean >$null
+    }
+}
+#+end_example
+
+*** bash
+
+#+begin_example
+function aqualovewrapper() {
+    local path=$(aqualove)
+    local clean=$(echo "$path" | tr -d '\n')
+    if [ -z "$clean" ]; then
+        return
+    fi
+    if [ -d "$clean" ]; then
+        cd "$clean"
+    fi
+}
+#+end_example
+
+** steps
+
+#+begin_example
+aqualovewrapper
+# answer propmpts
+...
+make test
+or
+bazel query ...
+#+end_example
