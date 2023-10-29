@@ -4,7 +4,7 @@ go 1.21.1
 
 require (
 	github.com/taylormonacelli/aeryavenue v0.0.2
-	github.com/taylormonacelli/flashbiter v0.0.26
+	github.com/taylormonacelli/flashbiter v0.0.27
 	github.com/taylormonacelli/forestfish v0.0.10
 	github.com/taylormonacelli/goldbug v0.0.6
 )
@@ -46,5 +46,3 @@ require (
 	golang.org/x/tools v0.6.0 // indirect
 	gopkg.in/warnings.v0 v0.1.2 // indirect
 )
-
-replace github.com/taylormonacelli/flashbiter => ../flashbiter

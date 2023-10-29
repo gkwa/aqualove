@@ -1,3 +1,19 @@
+
+** install/config on windows
+
+#+begin_example
+$env:PATH+=';C:\Python312\Scripts'
+$env:PATH+=';C:\Program Files\Go\bin'
+$env:PATH+=";$env:USERPROFILE\go\bin"
+
+choco install python golang
+pip install cookiecutter
+go version
+
+go install github.com/taylormonacelli/aqualove@latest
+aqualove
+#+end_example
+
 ** motivation
 
 Wrap cookiecutter with opinionated defaults.
