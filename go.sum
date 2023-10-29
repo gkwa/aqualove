@@ -92,6 +92,8 @@ github.com/stretchr/testify v1.8.4 h1:CcVxjf3Q8PM0mHUKJCdn+eZZtm5yQwehR5yeSVQQcU
 github.com/stretchr/testify v1.8.4/go.mod h1:sz/lmYIOXD/1dqDmKjjqLyZ2RngseejIcXlSw2iwfAo=
 github.com/taylormonacelli/aeryavenue v0.0.2 h1:JSxBa1hpBTer40wY1FOpcV8L2zAKVLfehXLcXV0IdQA=
 github.com/taylormonacelli/aeryavenue v0.0.2/go.mod h1:5pqHQR/1eJlGkaQEPt2qQU2jVmf/lKfUgOf9T2hW3nc=
+github.com/taylormonacelli/aeryavenue v0.0.3 h1:xloMHsJ5AoDDbsnJGgbJpd0TN0gEsSyHjLKC8u4bOeE=
+github.com/taylormonacelli/aeryavenue v0.0.3/go.mod h1:5pqHQR/1eJlGkaQEPt2qQU2jVmf/lKfUgOf9T2hW3nc=
 github.com/taylormonacelli/flashbiter v0.0.25 h1:wyAt36W5aBrBPy4twne/ct8Ha77xJ4PHfIJLOEA00V4=
 github.com/taylormonacelli/flashbiter v0.0.25/go.mod h1:mCkDg69LD1H4EPRPi5ajInU/C0UbuMSLfrqlHCEvBXA=
 github.com/taylormonacelli/flashbiter v0.0.27 h1:mEVhmFayoYjcjwWlumbf0y0WdVM4nrShNbdl3s6lQ/I=
