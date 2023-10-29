@@ -1,3 +1,8 @@
+Wrap cookiecutter with opinionated defaults like this for example:
+
+#+begin_example
+/usr/local/bin/cookiecutter --no-input https://github.com/taylormonacelli/itsvermont/archive/refs/heads/master.zip project_name=alliowa --output-dir=/tmp
+#+end_example
 
 ** install/config on windows
 
@@ -23,10 +28,6 @@ go build -o aqualove.exe cmd/main.go
 $env:PATH+=";$binPath"
 aqualove
 #+end_example
-
-** motivation
-
-Wrap cookiecutter with opinionated defaults.
 
 ** wrapper for shell
 *** powershell
