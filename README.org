@@ -14,8 +14,9 @@ allow to choose some defaults and then it will run cookiecutter similar to this:
 
 in order to generate project name /tmp/alliowa.
 
-Then you'd cd /tmp/alliowa and do any of:
+Then you'd and do any of:
 #+begin_example
+cd /tmp/alliowa
 make test
 code alliowa.code-workspace
 #+end_example
