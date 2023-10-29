@@ -85,8 +85,8 @@ func getProjectBaseDir() (string, error) {
 
 func getProjectTemplateURL() (string, error) {
 	baseDirOptions := map[string]string{
-		"https://github.com/taylormonacelli/itsvermont": "https://github.com/taylormonacelli/itsvermont",
-		"https://github.com/taylormonacelli/bluesorrow": "https://github.com/taylormonacelli/bluesorrow",
+		"https://github.com/taylormonacelli/itsvermont/archive/refs/heads/master.zip": "https://github.com/taylormonacelli/itsvermont/archive/refs/heads/master.zip",
+		"https://github.com/taylormonacelli/bluesorrow/archive/refs/heads/master.zip": "https://github.com/taylormonacelli/bluesorrow/archive/refs/heads/master.zip",
 	}
 	inputSelector := aeryavenue.GetInputSelector()
 	template, err := aeryavenue.SelectItem(baseDirOptions, inputSelector)
