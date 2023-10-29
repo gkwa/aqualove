@@ -3,8 +3,8 @@ module github.com/taylormonacelli/aqualove
 go 1.21.1
 
 require (
-	github.com/manifoldco/promptui v0.9.0
-	github.com/taylormonacelli/flashbiter v0.0.19
+	github.com/taylormonacelli/aeryavenue v0.0.2
+	github.com/taylormonacelli/flashbiter v0.0.26
 	github.com/taylormonacelli/forestfish v0.0.10
 	github.com/taylormonacelli/goldbug v0.0.6
 )
@@ -18,7 +18,6 @@ require (
 	github.com/atotto/clipboard v0.1.4 // indirect
 	github.com/brianvoe/gofakeit/v6 v6.24.0 // indirect
 	github.com/castillobgr/sententia v0.0.0-20160918013314-9b04b4a53625 // indirect
-	github.com/chzyer/readline v0.0.0-20180603132655-2972be24d48e // indirect
 	github.com/cloudflare/circl v1.3.3 // indirect
 	github.com/emirpasic/gods v1.18.1 // indirect
 	github.com/gdamore/encoding v1.0.0 // indirect
@@ -32,7 +31,7 @@ require (
 	github.com/lucasb-eyer/go-colorful v1.2.0 // indirect
 	github.com/mattn/go-runewidth v0.0.14 // indirect
 	github.com/pjbgf/sha1cd v0.3.0 // indirect
-	github.com/rivo/tview v0.0.0-20230826224341-9754ab44dc1c // indirect
+	github.com/rivo/tview v0.0.0-20231024211518-8b7bcf9883df // indirect
 	github.com/rivo/uniseg v0.4.3 // indirect
 	github.com/sergi/go-diff v1.3.1 // indirect
 	github.com/skeema/knownhosts v1.2.0 // indirect

@@ -6,58 +6,21 @@ import (
 	"os/exec"
 	"path/filepath"
 
-	"github.com/manifoldco/promptui"
+	"github.com/taylormonacelli/aeryavenue"
 	"github.com/taylormonacelli/flashbiter"
 	mymazda "github.com/taylormonacelli/forestfish/mymazda"
 )
 
 func Main() int {
 	slog.Debug("aqualove", "test", true)
-	path, err := doit()
+	projectPath, err := doit()
 	if err != nil {
 		panic(err)
 	}
 
-	fmt.Println(path)
+	fmt.Println(projectPath)
 
 	return 0
-}
-
-func getProjectBaseDir() (string, error) {
-	prompt := promptui.Select{
-		Label: "Select new project base directory",
-		Items: []string{
-			"~/pdev/taylormonacelli",
-			"/tmp",
-		},
-	}
-
-	_, result, err := prompt.Run()
-	if err != nil {
-		fmt.Printf("Prompt failed %v\n", err)
-		return "", err
-	}
-
-	fmt.Printf("You choose %q\n", result)
-	return result, nil
-}
-
-func getProjectTemplateURL() (string, error) {
-	prompt := promptui.Select{
-		Label: "Select new project base directory",
-		Items: []string{
-			"https://github.com/taylormonacelli/itsvermont",
-			"https://github.com/taylormonacelli/bluesorrow",
-		},
-	}
-
-	_, result, err := prompt.Run()
-	if err != nil {
-		fmt.Printf("Prompt failed %v\n", err)
-		return "", err
-	}
-
-	return result, nil
 }
 
 func doit() (string, error) {
@@ -104,4 +67,32 @@ func doit() (string, error) {
 
 	path = filepath.Join(path, projectPath)
 	return path, nil
+}
+
+func getProjectBaseDir() (string, error) {
+	baseDirOptions := map[string]string{
+		"~/pdev/taylormonacelli": "~/pdev/taylormonacelli",
+		"/tmp":                   "/tmp",
+	}
+	inputSelector := aeryavenue.GetInputSelector()
+	baseDir, err := aeryavenue.SelectItem(baseDirOptions, inputSelector)
+	if err != nil {
+		slog.Error("selectItem failed", "error", err)
+	}
+
+	return baseDir, nil
+}
+
+func getProjectTemplateURL() (string, error) {
+	baseDirOptions := map[string]string{
+		"https://github.com/taylormonacelli/itsvermont": "https://github.com/taylormonacelli/itsvermont",
+		"https://github.com/taylormonacelli/bluesorrow": "https://github.com/taylormonacelli/bluesorrow",
+	}
+	inputSelector := aeryavenue.GetInputSelector()
+	template, err := aeryavenue.SelectItem(baseDirOptions, inputSelector)
+	if err != nil {
+		slog.Error("selectItem failed", "error", err)
+	}
+
+	return template, nil
 }
