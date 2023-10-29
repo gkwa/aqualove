@@ -1,7 +1,23 @@
-Wrap cookiecutter with opinionated defaults like this for example:
+** motivation: learn/practice go
 
+Wrap cookiecutter with opinionated defaults.
+
+** example
+
+Run this app and it will generate a random name like 'alliowa' and the
+allow to choose some defaults and then it will run cookiecutter similar to this:
 #+begin_example
-/usr/local/bin/cookiecutter --no-input https://github.com/taylormonacelli/itsvermont/archive/refs/heads/master.zip project_name=alliowa --output-dir=/tmp
+/usr/local/bin/cookiecutter \
+     --output-dir=/tmp \
+     --no-input https://github.com/taylormonacelli/itsvermont/archive/refs/heads/master.zip project_name=alliowa 
+#+end_example
+
+in order to generate project name /tmp/alliowa.
+
+Then you'd cd /tmp/alliowa and do any of:
+#+begin_example
+make test
+code alliowa.code-workspace
 #+end_example
 
 ** install/config on windows
