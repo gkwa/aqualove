@@ -1,45 +1,26 @@
 package aqualove
 
 import (
-	"errors"
 	"fmt"
 	"log/slog"
 	"os/exec"
 	"path/filepath"
-	"strconv"
 
 	"github.com/manifoldco/promptui"
+	"github.com/taylormonacelli/flashbiter"
 	mymazda "github.com/taylormonacelli/forestfish/mymazda"
 )
 
 func Main() int {
 	slog.Debug("aqualove", "test", true)
-	test2()
+	path, err := doit()
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println(path)
 
 	return 0
-}
-
-func test() {
-	validate := func(input string) error {
-		_, err := strconv.ParseFloat(input, 64)
-		if err != nil {
-			return errors.New("invalid number")
-		}
-		return nil
-	}
-
-	prompt := promptui.Prompt{
-		Label:    "Number",
-		Validate: validate,
-	}
-
-	result, err := prompt.Run()
-	if err != nil {
-		fmt.Printf("Prompt failed %v\n", err)
-		return
-	}
-
-	fmt.Printf("You choose %q\n", result)
 }
 
 func getProjectBaseDir() (string, error) {
@@ -79,29 +60,27 @@ func getProjectTemplateURL() (string, error) {
 	return result, nil
 }
 
-func test2() error {
+func doit() (string, error) {
 	var err error
 	path, _ := getProjectBaseDir()
 	path, err = mymazda.ExpandTilde(path)
 	if err != nil {
-		return err
+		return "", err
 	}
 
 	slog.Debug("path after expansion", "path", path)
 
-	cmd := exec.Command("flashbiter", path)
-	stdout, stderr, err := runCmd(cmd)
-	if err != nil || stderr != "" {
-		slog.Error("runCmd", "error", err)
-		return err
+	projectPath, err := flashbiter.GetUniquePath()
+	if err != nil {
+		panic(err)
 	}
 
-	project_name := filepath.Base(stdout)
+	project_name := filepath.Base(projectPath)
 
 	url, err := getProjectTemplateURL()
 	if err != nil {
 		slog.Error("project template", "url", err)
-		return err
+		return "", err
 	}
 	slog.Debug("project template", "url", url)
 
@@ -111,11 +90,18 @@ func test2() error {
 		url,
 		fmt.Sprintf("project_name=%s", project_name),
 		fmt.Sprintf("--output-dir=%s", path),
-		"--overwrite-if-exists",
 	}
 
-	cmd = exec.Command(params[0], params[1:]...)
+	cmd := exec.Command(params[0], params[1:]...)
 	slog.Debug("command", "cmd", cmd.String())
+	stdout, stderr, err := runCmd(cmd)
+	slog.Debug("runCmd", "stdout", stdout)
+	slog.Debug("runCmd", "stderr", stderr)
 
-	return nil
+	if err != nil {
+		panic(err)
+	}
+
+	path = filepath.Join(path, projectPath)
+	return path, nil
 }

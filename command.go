@@ -3,6 +3,7 @@ package aqualove
 import (
 	"fmt"
 	"io"
+	"log/slog"
 	"os/exec"
 	"strings"
 )
@@ -18,13 +19,13 @@ func runCmd(cmd *exec.Cmd) (string, string, error) {
 
 	stderr, err := cmd.StderrPipe()
 	if err != nil {
-		fmt.Println("Error creating stderr pipe:", err)
+		slog.Error("error creating stderr pipe", "error", err)
 		return "", "", err
 	}
 
 	// Start the command
 	if err := cmd.Start(); err != nil {
-		fmt.Println("Error starting the command:", err)
+		slog.Error("error starting command", "cmd", cmd.String(), "error", err)
 		return "", "", err
 	}
 
@@ -37,13 +38,13 @@ func runCmd(cmd *exec.Cmd) (string, string, error) {
 	if err := cmd.Wait(); err != nil {
 		if exitError, ok := err.(*exec.ExitError); ok {
 			exitCode := exitError.ExitCode()
-			fmt.Printf("Command exited with status code %d\n", exitCode)
+			slog.Error("command exited", "status code", exitCode)
 		} else {
 			// Some other error occurred
-			fmt.Println("Error waiting for the command to finish:", err)
+			slog.Error("error waiting for command to finish", "cmd", cmd.String(), "error", err)
 		}
 	} else {
-		fmt.Println("Command exited successfully")
+		slog.Debug("command exited successfully")
 	}
 
 	stdoutStr := strings.TrimSpace(string(stdoutBytes))
