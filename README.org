@@ -7,9 +7,9 @@ Wrap cookiecutter with opinionated defaults.
 Run this app and it will generate a random name like 'alliowa' and the
 allow to choose some defaults and then it will run cookiecutter similar to this:
 #+begin_example
-/usr/local/bin/cookiecutter \
-     --output-dir=/tmp \
-     --no-input https://github.com/taylormonacelli/itsvermont/archive/refs/heads/master.zip project_name=alliowa 
+cookiecutter --output-dir=/tmp --no-input \
+    https://github.com/taylormonacelli/itsvermont/archive/refs/heads/master.zip \
+    project_name=alliowa
 #+end_example
 
 in order to generate project name /tmp/alliowa.
