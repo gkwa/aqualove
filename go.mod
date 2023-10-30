@@ -4,7 +4,7 @@ go 1.21.1
 
 require (
 	github.com/taylormonacelli/aeryavenue v0.0.3
-	github.com/taylormonacelli/flashbiter v0.0.28
+	github.com/taylormonacelli/flashbiter v0.0.29
 	github.com/taylormonacelli/forestfish v0.0.10
 	github.com/taylormonacelli/goldbug v0.0.6
 )
@@ -35,7 +35,7 @@ require (
 	github.com/rivo/uniseg v0.4.3 // indirect
 	github.com/sergi/go-diff v1.3.1 // indirect
 	github.com/skeema/knownhosts v1.2.0 // indirect
-	github.com/taylormonacelli/oliveluck v0.0.1 // indirect
+	github.com/taylormonacelli/oliveluck v0.0.2 // indirect
 	github.com/xanzy/ssh-agent v0.3.3 // indirect
 	golang.org/x/crypto v0.11.0 // indirect
 	golang.org/x/mod v0.8.0 // indirect
