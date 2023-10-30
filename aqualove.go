@@ -13,7 +13,7 @@ import (
 
 func Main() int {
 	slog.Debug("aqualove", "test", true)
-	projectPath, err := doit()
+	projectPath, err := runCookiecutter()
 	if err != nil {
 		panic(err)
 	}
@@ -23,7 +23,7 @@ func Main() int {
 	return 0
 }
 
-func doit() (string, error) {
+func runCookiecutter() (string, error) {
 	var err error
 	path, _ := getProjectBaseDir()
 	path, err = mymazda.ExpandTilde(path)
