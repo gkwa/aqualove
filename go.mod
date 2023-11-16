@@ -3,8 +3,8 @@ module github.com/taylormonacelli/aqualove
 go 1.21.1
 
 require (
-	github.com/taylormonacelli/aeryavenue v0.0.3
-	github.com/taylormonacelli/flashbiter v0.0.30
+	github.com/taylormonacelli/aeryavenue v0.0.5
+	github.com/taylormonacelli/flashbiter v0.0.34
 	github.com/taylormonacelli/forestfish v0.0.10
 	github.com/taylormonacelli/goldbug v0.0.6
 )
@@ -32,11 +32,11 @@ require (
 	github.com/lucasb-eyer/go-colorful v1.2.0 // indirect
 	github.com/mattn/go-runewidth v0.0.15 // indirect
 	github.com/pjbgf/sha1cd v0.3.0 // indirect
-	github.com/rivo/tview v0.0.0-20231030180821-ee8616ef6467 // indirect
+	github.com/rivo/tview v0.0.0-20231102183219-1b91b8131c43 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
 	github.com/sergi/go-diff v1.3.1 // indirect
 	github.com/skeema/knownhosts v1.2.1 // indirect
-	github.com/taylormonacelli/oliveluck v0.0.5 // indirect
+	github.com/taylormonacelli/oliveluck v0.0.9 // indirect
 	github.com/xanzy/ssh-agent v0.3.3 // indirect
 	golang.org/x/crypto v0.14.0 // indirect
 	golang.org/x/mod v0.13.0 // indirect
