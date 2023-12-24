@@ -87,7 +87,8 @@ func getProjectBaseDir(baseDirOptions *map[string]string) (string, error) {
 }
 
 func getProjectTemplateURL() (string, error) {
-	baseDirOptions := map[string]string{
+
+	templates := map[string]string{
 		"https://github.com/taylormonacelli/itsvermont/archive/refs/heads/master.zip": "https://github.com/taylormonacelli/itsvermont/archive/refs/heads/master.zip",
 		"https://github.com/taylormonacelli/allnew/archive/refs/heads/master.zip":     "https://github.com/taylormonacelli/allnew/archive/refs/heads/master.zip",
 		"https://github.com/taylormonacelli/bluesorrow/archive/refs/heads/master.zip": "https://github.com/taylormonacelli/bluesorrow/archive/refs/heads/master.zip",
@@ -95,7 +96,7 @@ func getProjectTemplateURL() (string, error) {
 		"https://github.com/lacion/cookiecutter-golang/archive/refs/heads/main.zip":   "https://github.com/lacion/cookiecutter-golang/archive/refs/heads/main.zip",
 	}
 	inputSelector := aeryavenue.GetInputSelector()
-	template, err := aeryavenue.SelectItem(baseDirOptions, inputSelector)
+	template, err := aeryavenue.SelectItem(templates, inputSelector)
 	if err != nil {
 		slog.Error("selectItem failed", "error", err)
 	}
