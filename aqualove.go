@@ -13,7 +13,13 @@ import (
 
 func Main() int {
 	slog.Debug("aqualove", "test", true)
-	projectPath, err := runCookiecutter()
+
+	baseDirOptions := &map[string]string{
+		"~/pdev/taylormonacelli": "~/pdev/taylormonacelli",
+		"/tmp":                   "/tmp",
+	}
+
+	projectPath, err := runCookiecutter(baseDirOptions)
 	if err != nil {
 		panic(err)
 	}
@@ -23,9 +29,10 @@ func Main() int {
 	return 0
 }
 
-func runCookiecutter() (string, error) {
+func runCookiecutter(baseDirOptions *map[string]string) (string, error) {
 	var err error
-	path, _ := getProjectBaseDir()
+
+	path, _ := getProjectBaseDir(baseDirOptions)
 	path, err = mymazda.ExpandTilde(path)
 	if err != nil {
 		return "", err
@@ -69,13 +76,9 @@ func runCookiecutter() (string, error) {
 	return path, nil
 }
 
-func getProjectBaseDir() (string, error) {
-	baseDirOptions := map[string]string{
-		"~/pdev/taylormonacelli": "~/pdev/taylormonacelli",
-		"/tmp":                   "/tmp",
-	}
+func getProjectBaseDir(baseDirOptions *map[string]string) (string, error) {
 	inputSelector := aeryavenue.GetInputSelector()
-	baseDir, err := aeryavenue.SelectItem(baseDirOptions, inputSelector)
+	baseDir, err := aeryavenue.SelectItem(*baseDirOptions, inputSelector)
 	if err != nil {
 		slog.Error("selectItem failed", "error", err)
 	}
