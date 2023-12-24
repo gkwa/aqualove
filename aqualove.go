@@ -14,12 +14,17 @@ import (
 func Main() int {
 	slog.Debug("aqualove", "test", true)
 
-	baseDirOptions := &map[string]string{
-		"~/pdev/taylormonacelli": "~/pdev/taylormonacelli",
-		"/tmp":                   "/tmp",
+	baseDirOptions := make(map[string]string)
+
+	baseDirs := []string{
+		"~/pdev/taylormonacelli",
+		"/tmp",
+	}
+	for _, base := range baseDirs {
+		baseDirOptions[base] = base
 	}
 
-	projectPath, err := runCookiecutter(baseDirOptions)
+	projectPath, err := runCookiecutter(&baseDirOptions)
 	if err != nil {
 		panic(err)
 	}
@@ -87,14 +92,19 @@ func getProjectBaseDir(baseDirOptions *map[string]string) (string, error) {
 }
 
 func getProjectTemplateURL() (string, error) {
+	templates := make(map[string]string)
 
-	templates := map[string]string{
-		"https://github.com/taylormonacelli/itsvermont/archive/refs/heads/master.zip": "https://github.com/taylormonacelli/itsvermont/archive/refs/heads/master.zip",
-		"https://github.com/taylormonacelli/allnew/archive/refs/heads/master.zip":     "https://github.com/taylormonacelli/allnew/archive/refs/heads/master.zip",
-		"https://github.com/taylormonacelli/bluesorrow/archive/refs/heads/master.zip": "https://github.com/taylormonacelli/bluesorrow/archive/refs/heads/master.zip",
-		"https://github.com/taylormonacelli/dailycould/archive/refs/heads/master.zip": "https://github.com/taylormonacelli/dailycould/archive/refs/heads/master.zip",
-		"https://github.com/lacion/cookiecutter-golang/archive/refs/heads/main.zip":   "https://github.com/lacion/cookiecutter-golang/archive/refs/heads/main.zip",
+	urls := []string{
+		"https://github.com/taylormonacelli/itsvermont/archive/refs/heads/master.zip",
+		"https://github.com/taylormonacelli/allnew/archive/refs/heads/master.zip",
+		"https://github.com/taylormonacelli/bluesorrow/archive/refs/heads/master.zip",
+		"https://github.com/taylormonacelli/dailycould/archive/refs/heads/master.zip",
+		"https://github.com/lacion/cookiecutter-golang/archive/refs/heads/main.zip",
 	}
+	for _, url := range urls {
+		templates[url] = url
+	}
+
 	inputSelector := aeryavenue.GetInputSelector()
 	template, err := aeryavenue.SelectItem(templates, inputSelector)
 	if err != nil {
