@@ -101,7 +101,10 @@ func getProjectTemplateURL() (string, error) {
 		"https://github.com/taylormonacelli/dailycould/archive/refs/heads/master.zip",
 		"https://github.com/taylormonacelli/awaybeen/archive/refs/heads/master.zip",
 		"https://github.com/lacion/cookiecutter-golang/archive/refs/heads/main.zip",
+		"https://github.com/taylormonacelli/allshire/archive/refs/heads/master.zip",
+		"https://github.com/taylormonacelli/downmust/archive/refs/heads/master.zip",
 	}
+
 	for _, url := range urls {
 		templates[url] = url
 	}
