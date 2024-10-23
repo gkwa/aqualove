@@ -3,7 +3,7 @@ module github.com/taylormonacelli/aqualove
 go 1.21.1
 
 require (
-	github.com/taylormonacelli/aeryavenue v0.0.5
+	github.com/taylormonacelli/aeryavenue v0.0.6
 	github.com/taylormonacelli/flashbiter v0.0.34
 	github.com/taylormonacelli/forestfish v0.0.10
 	github.com/taylormonacelli/goldbug v0.0.6
